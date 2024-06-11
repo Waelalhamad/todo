@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To DO List | By Wael Alhamad</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <!-- Css -->
+    <title>To Do List | By Wael Alhamad</title>
+    <!-- Css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,10 +19,22 @@
         
         <!-- Bottom NavBar -->
         <nav class="bottom-navbar">
-            <a href="complete.html" class="nav-item"><i class="fa-solid fa-check"></i></a>
-            <a href="#" class="nav-item add"><i class="fa-solid fa-plus"></i></a>
-            <a href="trash.html" class="nav-item"><i class="fa-solid fa-trash"></i></a>
-        </nav>
+            <a href="#" class="nav-item active" id='home'>
+                <ion-icon name="home-outline"></ion-icon>
+            </a>
+            <a href="#" class="nav-item">
+                <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+            </a>
+            <a href="#" class="nav-item add" id="showAdd">
+                <ion-icon name="add-circle-outline"></ion-icon>
+            </a>
+            <a href="#" class="nav-item">
+                <ion-icon name="trash-outline"></ion-icon>
+            </a>
+            <a href="#" class="nav-item" onclick="hideHome()">
+                <ion-icon name="person-outline"></ion-icon>
+            </a>
+        </nav>        
     </header>
 
     <!-- TOP NAV FORM -->
@@ -35,23 +45,37 @@
         <label for="image-input">Upload profile picture:</label>
         <input type="file" id="image-input" accept="image/*">
         
-        <button id="submit-btn">Complete <i class="fa-solid fa-caret-right"></i></button>
+        <button id="submit-btn">Complete <ion-icon name="caret-forward-outline"></ion-icon></button>
     </div> 
 
     <!-- Home -->
      <section id="home">
         <!-- Tasks Number -->
         <div class="container" id="container" style="display: none;">
-             <p>You have to do <span id="tasks-number">0</span> Task<span></span></p>
+             <p>You have to do <span id="tasks-number">0</span> Task<span id="s"></span></p>
         </div>
 
         <!-- Tasks -->
-        <div id="tasks-container" class="tasks-container">
+        <div id="tasks-container" class="tasks-container" style="display:none;"">
         </div>
+
+        <!-- Add tasks -->
+         <div id="add-task-container" class="add-task-container" style="display: none;">
+            <h1 class="heading">Add Task</h1>
+            <div class="input-group">
+                <label for="task-input">Task</label>
+                <input type="text" id="task-input" required autocomplete="off">
+            </div>
+            <div class="btns">
+                <button class="cancel" onclick="hideAdd()">Cancel</button>
+                <button class="btn" id="add">Add</button>
+            </div>
+         </div>
      </section>
 
+     
     <!-- JavaScript -->
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script></body>
 </html>
